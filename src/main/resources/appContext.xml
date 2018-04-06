@@ -10,9 +10,16 @@
 
     <bean id="myCoach"
           class="demo_spring.TrackCoach">
+        <!-- set up constructor injection  -->
         <constructor-arg ref="myFortune" />
     </bean>
 
+    <bean id="myCricketCoach" class="demo_spring.CricketCoach">
+        <property name="fortuneService" ref="myFortune" />
+        <property name="emailAdress" value="someEmail@gmail.com"/>
+        <property name="team" value=""/>
+
+    </bean>
 
 
 </beans>
