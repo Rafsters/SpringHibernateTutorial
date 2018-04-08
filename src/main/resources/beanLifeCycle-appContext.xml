@@ -4,25 +4,18 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- load properties file  -->
-    <context:property-placeholder location="classpath:sport.properties" />
-
     <bean id="myFortune"
           class="demo_spring.HappyFortuneService">
 
     </bean>
 
     <bean id="myCoach"
-          class="demo_spring.TrackCoach">
+          class="demo_spring.TrackCoach"
+          init-method="doMyStartupStuff"
+          destroy-method="doMyCleanupStuffYoYo"
+    >
         <!-- set up constructor injection  -->
         <constructor-arg ref="myFortune" />
-    </bean>
-
-    <bean id="myCricketCoach" class="demo_spring.CricketCoach">
-        <property name="fortuneService" ref="myFortune" />
-        <property name="emailAdress" value="${foo.email}"/>
-        <property name="team" value="${foo.team}"/>
-
     </bean>
 
 </beans>

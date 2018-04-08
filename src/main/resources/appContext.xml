@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- load properties file  -->
+    <context:property-placeholder location="classpath:sport.properties" />
 
     <bean id="myFortune"
           class="demo_spring.HappyFortuneService">
@@ -16,10 +20,9 @@
 
     <bean id="myCricketCoach" class="demo_spring.CricketCoach">
         <property name="fortuneService" ref="myFortune" />
-        <property name="emailAdress" value="someEmail@gmail.com"/>
-        <property name="team" value=""/>
+        <property name="emailAdress" value="${foo.email}"/>
+        <property name="team" value="${foo.team}"/>
 
     </bean>
-
 
 </beans>
