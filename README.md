@@ -1,4 +1,6 @@
 # Spring & Hibernate Tutorial
 
-This project is about learning Spring & Hibernate from udemy course.
+Few lessons from Spring & Hibernate udemy course.
 https://www.udemy.com/spring-hibernate-tutorial
+
+
